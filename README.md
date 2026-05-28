@@ -1,1 +1,250 @@
 # sundie.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My krizza!💌</title>
+
+    <style>
+        *{
+            margine:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Poppins', sans serif;
+        }
+        body{
+            background: linear gradient(to bottom right, #ffd6e7, #fff0f5);
+            overflow-x:hidden;
+            color:#444;
+        }
+        
+        .container{
+            width:100%;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align items:center;
+            flex-direction:column;
+            text-alignmrnt:center;
+            padding:30px;
+        }
+        
+        h1{
+            font-size:3rem;
+            color:#ff4f89;
+            margin-bottom:15px;
+        }
+        
+        .intro{
+            font-size:1.2rem;
+            margin-bottom:30px;
+        }
+        
+        button{
+            padding:15px 35px;
+            border:none;
+            border-radius:30px;
+            background:#ff4f87;
+            color:white;
+            font-size:1rem;
+            cursor:pointer;
+            transition:0.3s;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        button:hover{
+            transform:scale(1.05);
+            background:#ff2f72;
+        }
+        
+        .letter-section{
+            display:none;
+            max-width:700px;
+            background:white;
+            padding:40px;
+            border-radius:25px;
+            margin-top:40px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+            animation:fadeIn 1s ease;
+        }
+        
+        .letter-section h2{
+            color:ff4f87;
+            margin-bottom:20px;
+        }
+        
+        .letter{
+            line-height:1.8;
+            font-size:1.1rem;
+        }
+        
+        .song{
+            margin-top:25px;
+            font-size:0.95rem;
+            color:#777;
+            font-style:italic;
+        }
+        
+        .gallery{
+            margin-top:40px;
+            display:grid;
+            grid-templates-columns:repeat(auto-fit, minmax(180px,1fr));
+            gap:15px;
+        }
+        
+        .gallery img:hover{
+            transform:scale(1.03);
+        }
+        
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            
+            to{
+                opcity:1;
+                transform:translateY(0);
+            }
+        }
+        
+        .hearts{
+            position:fixed;
+            width:100%;
+            height:100%;
+            pointer-events:none;
+            overflow:hidden;
+            top:0;
+            left:0;
+        }
+        
+        .heart{
+            position:absolute;
+            color:#ff7aa8;
+            animation:float 6s linear infinite;
+            font-size:20px;
+        }
+        
+        @keyframes float{
+            from{
+                transform:translateY(100vh);
+                opacity:1;
+            }
+            
+            to{
+                transform:translateY(-10vh);
+                opacity:0;
+            }
+        }
+    </style>
+/head>
+
+body>
+
+    <!-- Backgroudn Music -->
+    <audio autoplay loop>
+        <source src="paraluman.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="hearts"></div
+    
+    <div class="container">
+        <h1>Hi Krizza, Happy Birthday!💗</h1>
+
+        <p class="intro">
+            click to open my gift
+        </p>
+            
+        <buttom onclick="openLetter()">Open Gift 🎁</button>
+
+        <div class="letter-section" id="LetterSection">
+            <h2>For You 💌</h2>
+
+            <p class="letters">
+                happy birthday, my krizza!
+
+                first of all,
+                thank you for existing.
+                thank you for being someone who makes ordinary days feel softer,
+                lighter, and happier.
+                
+                today is all about celebrating you—your kindness,your strength,
+                your growth, and all the things that make you who you are. i hope
+                you take a moment to look back on eevrything you've been through and
+                realize just how far you've come. life hasn't been always easy but 
+                you've handled it in your own way, and that's something worth being
+                proud of.
+
+                you deserve a day filled with genuine happiness, laughter that doesn't
+                feel forced, and moments that make you forget all your worries, even
+                just for a while. i hope you're surrounded by people who truly 
+                appreciate you, people who see your worth even when you don't, and people
+                who reminded you that you matter more than you think.
+
+                you deserve all the love, peace, beautiful things that this world can
+                offer.
+
+                i hope life becomes more kinder to you. i hope the things you've been
+                carrying get lighter someday. i hope you continue growing into the person
+                you want to be without losing the softness in your heart. i hope you
+                never forget how appreciated you are. maybe not everyone says it loud, but i
+                know i'm not the only person who's grateful that someone like you existst.
+
+                and since it's your birthday, i want to be honest about something i've been
+                keeping to myself for a while now.
+
+                may i court you?
+
+                i want to pursue you in he most genuine way i can—through consistensy,
+                patience, effort, and intentions that are clear. i'm not asking you to give me
+                and answer right now, and i'm not expecting anything immediately either, i just
+                want the chance to show you how serious and sinscere i am when it comes to you.
+
+                and if you let me, i'd love to try.
+
+                again, happy birthday, krizza mae!
+                i hope today reminds you how special you are, not only to thr prople around you,
+                but especially to someone like me.
+            </p>
+            
+            <p class="song">
+                Paraluman — Adie <br>
+                dedicated especially for you.
+            </p>
+            
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openLetter(){
+            document.getElementById("letterSection").style.display = "block";
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+        
+        // Floating hearts
+        const hearts = document.querySelector('.hearts');
+        
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💗';
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            
+            hearts.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+            
+        }, 300);
+    </script>
+    
+</body>
+</html>
