@@ -51,52 +51,63 @@
             cursor:pointer;
             transition:0.3s;
             box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            margin-top:20px
         }
         
         button:hover{
             transform:scale(1.05);
             background:#ff2f72;
         }
-        
-        .letter-section{
+        .section{
             display:none;
-            max-width:700px;
+            max-width:800px;
+            width:100%;
             background:white;
             padding:40px;
             border-radius:25px;
             margin-top:40px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.1);
-            animation:Typewriter;
+            box-shadow:0 10px 30px rgba(0,0,0,.1);
+            animation:fadeIn 1s ease;
         }
-        
-        .letter-section h2{
-            color:ff4f87;
-            margin-bottom:20px;
-        }
-        
-        .letter{
-            line-height:1.8;
-            line-spacing:1.5;
-            font-size:1.1rem;
-            animation:Typewriter;
-        }
-        
-        .song{
-            margin-top:25px;
-            font-size:0.95rem;
-            color:#777;
-            font-style:italic;
-        }
-        
-        .gallery{
+         .gallery{
             margin-top:40px;
             display:grid;
             grid-templates-columns:repeat(auto-fit, minmax(180px,1fr));
             gap:15px;
+            margin-top:20px;
+         }
+        
+        .gallery img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+            border-radius:20px;
+            transition:0.3s;
         }
         
-        .gallery img:hover{
+         .gallery img:hover{
             transform:scale(1.03);
+        }
+
+        iframe{
+            width:100%;
+            height:352px;
+            border:none;
+            border-radius:20px;
+            margin-top:20px;
+        }
+
+        .letter{
+            text-align:left;
+            line-height:1.8px;
+            font-size:1.1rem;
+            white-space:pre-wrap;
+            min-height:300px;
+        }
+
+        h2{
+            color:#ff4f87;
+            margin-bottom:20px;
         }
         
         @keyframes fadeIn{
@@ -143,14 +154,8 @@
 /head>
 
 body>
-
-    <!-- Backgroudn Music -->
-    <audio autoplay loop>
-        <source src="https:open.spotify.com/track/1etOJEIVf5rmm0Zmd?si=pLtk-66-TOWDrU8FGJzWUA" type="audio/mpeg">
-    </audio>
     
     <div class="hearts"></div
-    
     <div class="container">
         <h1>Hi Krizza, Happy Birthday!💗</h1>
 
@@ -159,12 +164,42 @@ body>
         </p>
             
         <button onclick="openLetter()">Open Gift 🎁</button>
+        <div class="section" id="photoSection">
+            <h2>cute pics mo</h2>
+            <div class="gallery">
+                <img src= 
+
+        </div>
+
+        <div class="section" id="songSection">
+            <h2>i dedicated this song for you</h2>
+
+            <iframe
+                src="https://open.spotify.com/track/1etOJ1EIVf7Qf51rmm0Zmd?si=pLtk-66-TOWDrU8FGJzWUA"
+                allowfullscreen=""
+                allow="auroplay; clipboard-writer; encrypted-media; fullscreen; picture-in-picture">
+            </div>
 
         <div class="letter-section" id="letterSection">
             <h2>For You 💌</h2>
 
-            <p class="letter">
-                happy birthday, my krizza!
+            <p class="letter" id="typewriter"></p>
+        </div>
+    </div>
+
+    <script>
+        function openGift(){
+            document.getElementById("songSection").style.display = "block";
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+        function showLetter(){
+            document.getElementById("letterSection").style.display = "block";
+            
+            const message = happy birthday, my krizza!
                 
 
                 first of all,
@@ -217,46 +252,44 @@ body>
 
                 again, happy birthday, krizza mae!
                 i hope today reminds you how special you are, not only to thr prople around you,
-                but especially to someone like me.
-            </p>
+                but especially to someone like me. ;
             
-            </p>
-            <!-- Backgroudn Music -->
-    <audio autoplay loop>
-        <source src="https:open.spotify.com/track/1etOJEIVf5rmm0Zmd?si=pLtk-66-TOWDrU8FGJzWUA" type="audio/mpeg">
-    </audio>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        function openLetter(){
-            document.getElementById("letterSection").style.display = "block";
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth"
-            });
-        }
+                    let i = 0;
+                    const speed = 35;
+                    const target = document.getElementById("typewriter");
+
+                    function typewriter(){
+                        if(i < message.length){
+                            target.innerHTML += message.charAt(i);
+                            i++;
+                            setTimeout(typewriter, speed);
+                        }
+                    }
+                    typewriter();
+
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: "smooth"
+                    });
+                }
+            const hearts = document.querySelector('.hearts');
         
-        // Floating hearts
-        const hearts = document.querySelector('.hearts');
-        
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '💗';
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '💗';
             
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
             
-            hearts.appendChild(heart);
+                hearts.appendChild(heart);
             
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
             
-        }, 300);
-    </script>
+            }, 300);
+         </script>
     
-</body>
-</html>
+    </body>
+    </html>
